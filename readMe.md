@@ -8,7 +8,12 @@ The Chessboard Simulator is a command-line application that allows users to simu
 ## Assumptions
 
 - The chessboard is represented with the top-left corner (A8) as the coordinate (0,0).
-- The application assumes that the user is working with black pieces.
+- The coordinates are mapped as follows:
+  - A8: (0,0)
+  - H8: (0,7)
+  - H1: (7,7)
+  - A1: (7,0)
+- The application assumes that the user is playing from the A8 side where all black pieces are placed.
 
 ## Prerequisites
 
