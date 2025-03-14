@@ -4,6 +4,12 @@
 
 The Chessboard Simulator is a command-line application that allows users to simulate chess moves for various types of chess pieces. Built using Java and Spring Boot, this application supports interactive input to determine and display possible moves.
 
+
+## Assumptions
+
+- The chessboard is represented with the top-left corner (A8) as the coordinate (0,0).
+- The application assumes that the user is working with black pieces.
+
 ## Prerequisites
 
 - **Java 17** or higher

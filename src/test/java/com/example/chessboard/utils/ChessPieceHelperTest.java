@@ -1,32 +1,50 @@
 package com.example.chessboard.utils;
 
-import com.example.chessboard.ChessBoardApplication;
-import com.example.chessboard.model.ChessPiece;
-import com.example.chessboard.model.King;
-import com.example.chessboard.model.Pawn;
-import com.example.chessboard.model.Queen;
 import org.junit.jupiter.api.Test;
 
-import static com.example.chessboard.utils.ChessPieceHelper.createChessPiece;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ChessPieceHelperTest {
+class ChessPieceHelperTest {
 
     @Test
-    void testCreateChessPiece() {
-        ChessPiece pawn = createChessPiece("pawn");
-        assertNotNull(pawn);
-        assertTrue(pawn instanceof Pawn);
+    void testGetPossibleMovesForPawn() {
+        Set<String> expectedMoves = Set.of("D1");
 
-        ChessPiece king = createChessPiece("king");
-        assertNotNull(king);
-        assertTrue(king instanceof King);
+        Set<String> moves = ChessPieceHelper.getPossibleMoves("pawn", "D2");
 
-        ChessPiece queen = createChessPiece("queen");
-        assertNotNull(queen);
-        assertTrue(queen instanceof Queen);
+        assertNotNull(moves, "Possible moves should not be null");
+        assertEquals(expectedMoves, moves);
+    }
 
-        ChessPiece invalid = createChessPiece("invalid");
-        assertNull(invalid);
+    @Test
+    void testGetPossibleMovesForKing() {
+        Set<String> expectedMoves = Set.of("F1", "F2", "E2", "D1", "D2");
+
+        Set<String> moves = ChessPieceHelper.getPossibleMoves("king", "E1");
+
+        assertNotNull(moves, "Possible moves should not be null");
+        assertEquals(expectedMoves, moves);
+    }
+
+    @Test
+    void testGetPossibleMovesForQueen() {
+        Set<String> expectedMoves = Set.of("H1", "G1", "F1", "E1", "H5", "G4", "F3", "E2", "C1", "D2", "B1", "D3", "C2", "A1", "D4", "D5", "B3", "D6", "D7", "A4", "D8");
+        Set<String> moves = ChessPieceHelper.getPossibleMoves("queen", "D1");
+
+        assertNotNull(moves, "Possible moves should not be null");
+        assertEquals(expectedMoves, moves);    }
+
+    @Test
+    void testGetPossibleMovesForInvalidPiece() {
+        Set<String> moves = ChessPieceHelper.getPossibleMoves("invalid", "D1");
+        assertNull(moves, "Possible moves should be null for an invalid piece type");
+    }
+
+    @Test
+    void testGetPossibleMovesForInvalidPosition() {
+        Set<String> moves = ChessPieceHelper.getPossibleMoves("king", "Z9");
+        assertNull(moves, "Possible moves should be null for an invalid position");
     }
 }
