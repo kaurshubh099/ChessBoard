@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class ChessBoardImplementation {
 
+    private ChessBoardImplementation(){}
+
     public static void runChessBoardSimulator() {
         Scanner scanner = new Scanner(System.in);
 
@@ -18,6 +20,10 @@ public class ChessBoardImplementation {
                 break;
             }
             String input = scanner.nextLine().trim();
+            if (input.isBlank()) {
+                System.out.println("No input provided.");
+                continue;
+            }
             String[] inputParts = input.split(",");
             if (inputParts.length != 2) {
                 System.out.println("Invalid input format! Please use the format 'PieceType, Position' (e.g., King, D5).");
@@ -31,10 +37,14 @@ public class ChessBoardImplementation {
 
             System.out.println("Do you want to try again? (yes/no): ");
             if (!scanner.hasNextLine()) {
-                System.err.println("No input provided for continuation.");
+                System.out.println("No input provided for continuation.");
                 break;
             }
             String response = scanner.nextLine().trim().toLowerCase();
+            if (response.isBlank()) {
+                System.out.println("No input provided for continuation.");
+                break;
+            }
             continueRunning = response.equals("yes");
         }
 
