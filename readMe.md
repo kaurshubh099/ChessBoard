@@ -56,9 +56,20 @@ Thank you for using the Chessboard Simulator!
 ## Running Tests
 
 To run the tests, use the following command:
+
 ```sh
 ./gradlew test
 ```
+
+## Code Coverage
+
+To check the test code coverage, use the following command:
+
+```sh
+./gradlew test jacocoTestReport
+```
+
+The code coverage report will be generated in the `build/reports/tests/test` directory. Open the `index.html` file in a web browser to view the detailed coverage report.
 
 ## Project Structure
 
