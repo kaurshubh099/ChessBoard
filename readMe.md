@@ -80,7 +80,7 @@ To check the test code coverage, use the following command:
 ./gradlew test jacocoTestReport
 ```
 
-The code coverage report will be generated in the `build/reports/tests/test` directory. Open the `index.html` file in a web browser to view the detailed coverage report.
+The code coverage report will be generated in the `build/reports/jacoco/test/html` directory. Open the `index.html` file in a web browser to view the detailed coverage report.
 
 ## Project Structure
 

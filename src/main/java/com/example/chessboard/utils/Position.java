@@ -12,14 +12,6 @@ public class Position {
         this.col = col;
     }
 
-    public int row() {
-        return row;
-    }
-
-    public int col() {
-        return col;
-    }
-
     public static Position fromString(String input) {
         if (input == null || input.length() != 2) {
             throw new IllegalArgumentException("Invalid position format");
@@ -39,5 +31,13 @@ public class Position {
 
     public static String toString(int row, int col) {
         return COLUMNS[col] + String.valueOf(8 - row);
+    }
+
+    public int row() {
+        return row;
+    }
+
+    public int col() {
+        return col;
     }
 }

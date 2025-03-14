@@ -1,4 +1,5 @@
 package com.example.chessboard;
+
 import com.example.chessboard.utils.ChessPieceHelper;
 
 import java.util.Scanner;

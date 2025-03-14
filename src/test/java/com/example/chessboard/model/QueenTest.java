@@ -3,7 +3,7 @@ package com.example.chessboard.model;
 import com.example.chessboard.utils.Position;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QueenTest {
 

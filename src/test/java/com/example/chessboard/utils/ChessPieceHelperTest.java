@@ -34,7 +34,8 @@ class ChessPieceHelperTest {
         Set<String> moves = ChessPieceHelper.getPossibleMoves("queen", "D1");
 
         assertNotNull(moves, "Possible moves should not be null");
-        assertEquals(expectedMoves, moves);    }
+        assertEquals(expectedMoves, moves);
+    }
 
     @Test
     void testGetPossibleMovesForInvalidPiece() {
