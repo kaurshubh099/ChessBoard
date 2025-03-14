@@ -1,7 +1,6 @@
 package com.example.chessboard.utils;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PositionTest {
@@ -20,5 +19,13 @@ class PositionTest {
     void toStringTest() {
         assertEquals("A8", Position.toString(0, 0));
         assertEquals("H1", Position.toString(7, 7));
+    }
+
+    @Test
+    void shouldThrowIllegalArgumentExceptionWhenInvalidPositionFormat() {
+        assertThrows(IllegalArgumentException.class, () -> Position.fromString(null));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromString("A"));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromString("A9"));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromString("I1"));
     }
 }

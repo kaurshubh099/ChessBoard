@@ -4,10 +4,11 @@ import com.example.chessboard.model.ChessPiece;
 import com.example.chessboard.model.King;
 import com.example.chessboard.model.Pawn;
 import com.example.chessboard.model.Queen;
-
 import java.util.Set;
 
 public class ChessPieceHelper {
+
+    private ChessPieceHelper() {}
 
     private static ChessPiece createChessPiece(String pieceType) {
         switch (pieceType.toLowerCase()) {

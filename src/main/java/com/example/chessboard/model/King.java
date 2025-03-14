@@ -1,7 +1,6 @@
 package com.example.chessboard.model;
 
 import com.example.chessboard.utils.Position;
-
 import java.util.HashSet;
 import java.util.Set;
 

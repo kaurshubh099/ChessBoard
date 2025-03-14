@@ -1,9 +1,8 @@
 package com.example.chessboard.utils;
 
 import org.junit.jupiter.api.Test;
-
+import java.lang.reflect.Method;
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChessPieceHelperTest {
@@ -47,5 +46,17 @@ class ChessPieceHelperTest {
     void testGetPossibleMovesForInvalidPosition() {
         Set<String> moves = ChessPieceHelper.getPossibleMoves("king", "Z9");
         assertNull(moves, "Possible moves should be null for an invalid position");
+    }
+
+    @Test
+    void testCapitalize() throws Exception {
+        Method capitalizeMethod = ChessPieceHelper.class.getDeclaredMethod("capitalize", String.class);
+        capitalizeMethod.setAccessible(true);
+
+        assertEquals("Pawn", capitalizeMethod.invoke(null, "pawn"));
+        assertEquals("King", capitalizeMethod.invoke(null, "king"));
+        assertEquals("Queen", capitalizeMethod.invoke(null, "queen"));
+        assertEquals("", capitalizeMethod.invoke(null, ""));
+        assertNull(capitalizeMethod.invoke(null, (String) null));
     }
 }
