@@ -5,22 +5,30 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Queen implements ChessPiece {
+
+    private static final int[][] QUEEN_DIRECTIONS = {
+            {0, 1}, {0, -1}, {-1, 0}, {1, 0},
+            {-1, -1}, {-1, 1}, {1, -1}, {1, 1}
+    };
+
     @Override
-    public Set<String> getPossibleMoves(Position pos) {
+    public Set<String> getPossibleMoves(Position position) {
         Set<String> moves = new HashSet<>();
 
-        // Horizontal and vertical moves
-        for (int i = 0; i < Position.BOARD_SIZE; i++) {
-            if (i != pos.col()) moves.add(Position.toString(pos.row(), i));
-            if (i != pos.row()) moves.add(Position.toString(i, pos.col()));
-        }
+        for (int[] direction : QUEEN_DIRECTIONS) {
+            int newRow = position.row();
+            int newCol = position.col();
 
-        // Diagonal moves
-        for (int i = -Position.BOARD_SIZE; i <= Position.BOARD_SIZE; i++) {
-            if (Position.isValidPosition(pos.row() + i, pos.col() + i) && i != 0)
-                moves.add(Position.toString(pos.row() + i, pos.col() + i));
-            if (Position.isValidPosition(pos.row() + i, pos.col() - i) && i != 0)
-                moves.add(Position.toString(pos.row() + i, pos.col() - i));
+            while (true) {
+                newRow += direction[0];
+                newCol += direction[1];
+
+                if (!Position.isValidPosition(newRow, newCol)) {
+                    break;
+                }
+
+                moves.add(Position.toString(newRow, newCol));
+            }
         }
 
         return moves;

@@ -9,9 +9,9 @@ class ChessPieceHelperTest {
 
     @Test
     void testGetPossibleMovesForPawn() {
-        Set<String> expectedMoves = Set.of("D1");
+        Set<String> expectedMoves = Set.of("B5", "B6");
 
-        Set<String> moves = ChessPieceHelper.getPossibleMoves("pawn", "D2");
+        Set<String> moves = ChessPieceHelper.getPossibleMoves("pawn", "B7");
 
         assertNotNull(moves, "Possible moves should not be null");
         assertEquals(expectedMoves, moves);
@@ -40,6 +40,7 @@ class ChessPieceHelperTest {
     void testGetPossibleMovesForInvalidPiece() {
         Set<String> moves = ChessPieceHelper.getPossibleMoves("invalid", "D1");
         assertNull(moves, "Possible moves should be null for an invalid piece type");
+        assertEquals(moves, null);
     }
 
     @Test

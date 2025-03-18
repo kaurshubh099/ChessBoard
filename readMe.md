@@ -14,6 +14,7 @@ The Chessboard Simulator is a command-line application that allows users to simu
   - H1: (7,7)
   - A1: (7,0)
 - The application assumes that the user is playing from the A8 side where all black pieces are placed.
+- There will always be only one piece at a time.
 
 ## Prerequisites
 
@@ -57,10 +58,16 @@ Once the application is running, follow the on-screen prompts to enter the type 
 Example:
 
 Welcome to the Chessboard Simulator!
-Enter the type of chess piece (Pawn, King, Queen): queen
-Enter the initial position (e.g., D5): D5
-Queen possible moves from D5: D6, D7, D8, E5, F5, G5, H5, C5, B5, A5, E6, F7, G8, C6, B7, A8, E4, F3, G2, H1, C4, B3, A2
-Do you want to try again? (yes/no): no
+Enter the type of chess piece and initial position (e.g., King, D5): 
+King, D5
+King possible moves from D5: E5, D4, E6, C4, D6, C5, C6, E4
+Do you want to try again? (yes/no): 
+yes
+Enter the type of chess piece and initial position (e.g., King, D5): 
+Queen, D2
+Queen possible moves from D2: H2, G2, F2, E1, E2, D1, E3, F4, G5, H6, C1, C2, D3, B2, D4, C3, A2, D5, D6, B4, D7, D8, A5
+Do you want to try again? (yes/no): 
+no
 Thank you for using the Chessboard Simulator!
 ```
 
